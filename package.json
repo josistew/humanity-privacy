@@ -1,5 +1,11 @@
 {
   "name": "humanity-privacy",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "dev": "npx serve public -l 3000 --no-clipboard"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
 }
