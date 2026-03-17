@@ -7,40 +7,43 @@
   <meta name="description" content="Privacy Policy for Humanity AI. Learn how we collect, use, and protect your personal information." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --charcoal: #2D2A26;
-      --sandstone: #C4A882;
-      --sienna: #C4573A;
-      --parchment: #F5F0E8;
-      --espresso: #1A1714;
-      --warm-gray: #8A8279;
-      --sage: #6B8F71;
-      --surface: #FAF7F2;
+      --bg-primary: #0A0A0F;
+      --bg-secondary: #111118;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-card-hover: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(99, 179, 237, 0.25);
+      --text-primary: #F0F0F5;
+      --text-secondary: #9CA3AF;
+      --text-muted: #6B7280;
+      --accent: #63B3ED;
+      --accent-warm: #F6AD55;
+      --accent-glow: rgba(99, 179, 237, 0.15);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 400;
-      color: var(--charcoal);
-      background: var(--surface);
+      color: var(--text-primary);
+      background: var(--bg-primary);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
     }
 
-    /* Atmospheric background */
+    /* Subtle gradient backdrop */
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(196,168,130,0.15), transparent),
-        radial-gradient(ellipse 60% 50% at 85% 80%, rgba(196,87,58,0.08), transparent),
-        radial-gradient(ellipse 90% 70% at 50% 50%, rgba(245,240,232,0.5), transparent);
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 179, 237, 0.08), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 90%, rgba(246, 173, 85, 0.04), transparent 50%);
       pointer-events: none;
       z-index: 0;
     }
@@ -50,7 +53,7 @@
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      opacity: 0.03;
+      opacity: 0.02;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 0;
@@ -59,9 +62,9 @@
     .wrapper {
       position: relative;
       z-index: 1;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 3rem 1.5rem 4rem;
+      padding: 2rem 1.5rem 4rem;
     }
 
     /* Nav bar */
@@ -69,37 +72,49 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 0 2.5rem;
-      border-bottom: 1px solid rgba(196,168,130,0.25);
+      padding: 1.25rem 0 2rem;
+      border-bottom: 1px solid var(--border);
       margin-bottom: 3rem;
     }
 
     .nav-brand {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 1.35rem;
-      color: var(--charcoal);
+      font-size: 1.3rem;
+      color: var(--text-primary);
       text-decoration: none;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
     }
 
     .nav-brand span {
-      color: var(--sienna);
+      color: var(--accent);
     }
 
     .nav-back {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
       font-weight: 500;
-      color: var(--warm-gray);
+      color: var(--text-muted);
       text-decoration: none;
       transition: color 0.2s ease;
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: all 0.2s ease;
     }
 
-    .nav-back:hover { color: var(--sienna); }
+    .nav-back:hover {
+      color: var(--text-primary);
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+    }
 
     .nav-back svg {
       width: 14px;
@@ -114,55 +129,92 @@
     /* Hero section */
     .hero {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
     }
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      color: var(--charcoal);
-      letter-spacing: -0.03em;
-      margin-bottom: 0.75rem;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid rgba(99, 179, 237, 0.2);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      margin-bottom: 1.5rem;
       opacity: 0;
       animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
+    .hero-badge svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      color: var(--text-primary);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.75rem;
+      line-height: 1.1;
+      opacity: 0;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.06s forwards;
+    }
+
     .hero .effective-date {
       font-size: 0.9rem;
-      color: var(--warm-gray);
-      font-weight: 300;
+      color: var(--text-muted);
+      font-weight: 400;
       opacity: 0;
-      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
     }
 
     .hero .effective-date strong {
-      color: var(--sandstone);
+      color: var(--text-secondary);
       font-weight: 500;
     }
 
     /* Content card */
     .content-card {
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(196,168,130,0.2);
-      border-radius: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
       padding: 2.5rem 2.25rem;
       opacity: 0;
-      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.16s forwards;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
     }
 
     /* Section headings */
     .content-card h2 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-      font-size: 1.45rem;
-      color: var(--charcoal);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.35rem;
+      color: var(--text-primary);
       letter-spacing: -0.02em;
-      margin: 2.25rem 0 0.75rem;
-      padding-top: 1.75rem;
-      border-top: 1px solid rgba(196,168,130,0.15);
+      margin: 2.5rem 0 0.85rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .content-card h2::before {
+      content: '';
+      width: 3px;
+      height: 1.1em;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
     }
 
     .content-card h2:first-child {
@@ -172,32 +224,32 @@
     }
 
     .content-card h3 {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 500;
-      font-size: 1.05rem;
-      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-primary);
       margin: 1.5rem 0 0.5rem;
     }
 
     .content-card p {
-      font-size: 0.95rem;
-      color: var(--charcoal);
+      font-size: 0.93rem;
+      color: var(--text-secondary);
       line-height: 1.75;
       margin-bottom: 1rem;
     }
 
     .content-card ul {
-      margin: 0.5rem 0 1rem 1.25rem;
+      margin: 0.5rem 0 1rem 0.5rem;
       list-style: none;
     }
 
     .content-card ul li {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       line-height: 1.75;
-      color: var(--charcoal);
+      color: var(--text-secondary);
       position: relative;
-      padding-left: 1rem;
-      margin-bottom: 0.3rem;
+      padding-left: 1.25rem;
+      margin-bottom: 0.35rem;
     }
 
     .content-card ul li::before {
@@ -208,23 +260,76 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: var(--sandstone);
+      background: var(--accent);
+      opacity: 0.7;
     }
 
     .content-card a {
-      color: var(--sienna);
+      color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(196,87,58,0.3);
-      transition: border-color 0.2s ease;
+      border-bottom: 1px solid rgba(99, 179, 237, 0.3);
+      transition: all 0.2s ease;
     }
 
     .content-card a:hover {
-      border-bottom-color: var(--sienna);
+      border-bottom-color: var(--accent);
     }
 
     .content-card strong {
-      font-weight: 500;
-      color: var(--espresso);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Table of contents */
+    .toc {
+      background: rgba(99, 179, 237, 0.04);
+      border: 1px solid rgba(99, 179, 237, 0.1);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .toc-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.25rem 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .toc-list li {
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-list li::before {
+      display: none;
+    }
+
+    .toc-list a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: none;
+      transition: color 0.2s ease;
+      display: block;
+      padding: 0.2rem 0;
+    }
+
+    .toc-list a:hover {
+      color: var(--accent);
+      border-bottom: none;
     }
 
     /* Footer */
@@ -232,32 +337,59 @@
       text-align: center;
       margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(196,168,130,0.2);
+      border-top: 1px solid var(--border);
       opacity: 0;
       animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
     }
 
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
     .footer p {
-      font-size: 0.82rem;
-      color: var(--warm-gray);
-      font-weight: 300;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
       line-height: 1.6;
     }
 
     .footer a {
-      color: var(--sandstone);
+      color: var(--text-secondary);
       text-decoration: none;
       border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
+      transition: all 0.2s ease;
     }
 
-    .footer a:hover { border-bottom-color: var(--sandstone); }
+    .footer a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
 
     /* Animations */
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(16px);
       }
       to {
         opacity: 1;
@@ -265,34 +397,76 @@
       }
     }
 
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Selection */
+    ::selection {
+      background: rgba(99, 179, 237, 0.25);
+      color: var(--text-primary);
+    }
+
     /* Mobile */
     @media (max-width: 640px) {
-      .wrapper { padding: 2rem 1.15rem 3rem; }
+      .wrapper { padding: 1.5rem 1.15rem 3rem; }
       .content-card { padding: 1.75rem 1.35rem; }
-      .nav { padding: 0.75rem 0 1.75rem; margin-bottom: 2rem; }
+      .nav { padding: 0.75rem 0 1.5rem; margin-bottom: 2rem; }
+      .toc-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <nav class="nav">
-      <a href="https://gethumanity.ai" class="nav-brand">Humanity<span>.</span></a>
+    <nav class="nav" role="navigation" aria-label="Primary">
+      <a href="https://gethumanity.ai" class="nav-brand" aria-label="Humanity AI Home">Humanity<span>.</span></a>
       <a href="https://gethumanity.ai" class="nav-back">
-        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Back to site
       </a>
     </nav>
 
     <div class="hero">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Legal
+      </div>
       <h1>Privacy Policy</h1>
       <p class="effective-date">Effective <strong>March 16, 2026</strong></p>
     </div>
 
     <div class="content-card">
-      <h2>Overview</h2>
+      <div class="toc">
+        <div class="toc-title">Contents</div>
+        <ul class="toc-list">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#info-collect">Information We Collect</a></li>
+          <li><a href="#how-use">How We Use Your Information</a></li>
+          <li><a href="#how-share">How We Share Your Information</a></li>
+          <li><a href="#data-retention">Data Retention</a></li>
+          <li><a href="#your-rights">Your Rights</a></li>
+          <li><a href="#third-party">Third-Party Links</a></li>
+          <li><a href="#children">Children's Privacy</a></li>
+          <li><a href="#changes">Changes to This Policy</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <h2 id="overview">Overview</h2>
       <p>Humanity AI ("we," "us," or "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at <a href="https://gethumanity.ai">gethumanity.ai</a>, interact with our ads, or use our services.</p>
 
-      <h2>Information We Collect</h2>
+      <h2 id="info-collect">Information We Collect</h2>
 
       <h3>Information You Provide</h3>
       <p>When you fill out a form, request a demo, or otherwise contact us, we may collect:</p>
@@ -316,7 +490,7 @@
       <h3>Tracking Technologies</h3>
       <p>We use cookies, pixels (including the Meta Pixel), and similar technologies to measure ad performance, understand site usage, and improve your experience. These tools may collect data about your browsing activity across websites.</p>
 
-      <h2>How We Use Your Information</h2>
+      <h2 id="how-use">How We Use Your Information</h2>
       <p>We use the information we collect to:</p>
       <ul>
         <li>Respond to your inquiries and provide requested services</li>
@@ -327,18 +501,18 @@
         <li>Comply with legal obligations</li>
       </ul>
 
-      <h2>How We Share Your Information</h2>
+      <h2 id="how-share">How We Share Your Information</h2>
       <p>We do not sell your personal information. We may share your data with:</p>
       <ul>
-        <li><strong>Service providers</strong> — trusted third parties that help us operate our business (e.g., CRM platforms, email tools, analytics services)</li>
-        <li><strong>Advertising platforms</strong> — such as Meta (Facebook/Instagram) for ad measurement and optimization via the Conversions API and Meta Pixel</li>
-        <li><strong>Legal compliance</strong> — when required by law, court order, or governmental authority</li>
+        <li><strong>Service providers</strong> -- trusted third parties that help us operate our business (e.g., CRM platforms, email tools, analytics services)</li>
+        <li><strong>Advertising platforms</strong> -- such as Meta (Facebook/Instagram) for ad measurement and optimization via the Conversions API and Meta Pixel</li>
+        <li><strong>Legal compliance</strong> -- when required by law, court order, or governmental authority</li>
       </ul>
 
-      <h2>Data Retention</h2>
+      <h2 id="data-retention">Data Retention</h2>
       <p>We retain your personal information only as long as necessary to fulfill the purposes described in this policy, or as required by law. Lead information is typically retained for up to 24 months unless you request earlier deletion.</p>
 
-      <h2>Your Rights</h2>
+      <h2 id="your-rights">Your Rights</h2>
       <p>Depending on your location, you may have the right to:</p>
       <ul>
         <li>Access the personal information we hold about you</li>
@@ -349,16 +523,16 @@
       </ul>
       <p>To exercise any of these rights, contact us at the email address below.</p>
 
-      <h2>Third-Party Links</h2>
+      <h2 id="third-party">Third-Party Links</h2>
       <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices of those sites and encourage you to review their policies.</p>
 
-      <h2>Children's Privacy</h2>
+      <h2 id="children">Children's Privacy</h2>
       <p>Our services are not directed to individuals under 16. We do not knowingly collect personal information from children. If you believe we have collected such data, please contact us immediately.</p>
 
-      <h2>Changes to This Policy</h2>
+      <h2 id="changes">Changes to This Policy</h2>
       <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised effective date. Your continued use of our website or services after changes constitutes acceptance of the updated policy.</p>
 
-      <h2>Contact Us</h2>
+      <h2 id="contact">Contact Us</h2>
       <p>If you have questions about this Privacy Policy or wish to exercise your privacy rights, contact us at:</p>
       <ul>
         <li><strong>Humanity AI</strong></li>
@@ -369,8 +543,13 @@
     </div>
 
     <div class="footer">
+      <div class="footer-brand">Humanity<span>.</span></div>
       <p>&copy; 2026 Humanity AI. All rights reserved.</p>
-      <p><a href="https://gethumanity.ai">gethumanity.ai</a></p>
+      <div class="footer-links">
+        <a href="https://gethumanity.ai">Home</a>
+        <a href="https://gethumanity.ai/enterprise">Enterprise</a>
+        <a href="https://gethumanity.ai/local">Local</a>
+      </div>
     </div>
   </div>
 </body>
