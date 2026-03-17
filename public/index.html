@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Humanity AI</title>
+  <meta name="description" content="Privacy Policy for Humanity AI. Learn how we collect, use, and protect your personal information." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --charcoal: #2D2A26;
+      --sandstone: #C4A882;
+      --sienna: #C4573A;
+      --parchment: #F5F0E8;
+      --espresso: #1A1714;
+      --warm-gray: #8A8279;
+      --sage: #6B8F71;
+      --surface: #FAF7F2;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      color: var(--charcoal);
+      background: var(--surface);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* Atmospheric background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(196,168,130,0.15), transparent),
+        radial-gradient(ellipse 60% 50% at 85% 80%, rgba(196,87,58,0.08), transparent),
+        radial-gradient(ellipse 90% 70% at 50% 50%, rgba(245,240,232,0.5), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* Nav bar */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0 2.5rem;
+      border-bottom: 1px solid rgba(196,168,130,0.25);
+      margin-bottom: 3rem;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand span {
+      color: var(--sienna);
+    }
+
+    .nav-back {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--warm-gray);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-back:hover { color: var(--sienna); }
+
+    .nav-back svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Hero section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      color: var(--charcoal);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero .effective-date {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
+    }
+
+    .hero .effective-date strong {
+      color: var(--sandstone);
+      font-weight: 500;
+    }
+
+    /* Content card */
+    .content-card {
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(196,168,130,0.2);
+      border-radius: 1.25rem;
+      padding: 2.5rem 2.25rem;
+      opacity: 0;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.16s forwards;
+    }
+
+    /* Section headings */
+    .content-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 1.45rem;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      margin: 2.25rem 0 0.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(196,168,130,0.15);
+    }
+
+    .content-card h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .content-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .content-card p {
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .content-card ul {
+      margin: 0.5rem 0 1rem 1.25rem;
+      list-style: none;
+    }
+
+    .content-card ul li {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--charcoal);
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .content-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--sandstone);
+    }
+
+    .content-card a {
+      color: var(--sienna);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196,87,58,0.3);
+      transition: border-color 0.2s ease;
+    }
+
+    .content-card a:hover {
+      border-bottom-color: var(--sienna);
+    }
+
+    .content-card strong {
+      font-weight: 500;
+      color: var(--espresso);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(196,168,130,0.2);
+      opacity: 0;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
+    }
+
+    .footer p {
+      font-size: 0.82rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: var(--sandstone);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .footer a:hover { border-bottom-color: var(--sandstone); }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .wrapper { padding: 2rem 1.15rem 3rem; }
+      .content-card { padding: 1.75rem 1.35rem; }
+      .nav { padding: 0.75rem 0 1.75rem; margin-bottom: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="nav">
+      <a href="https://gethumanity.ai" class="nav-brand">Humanity<span>.</span></a>
+      <a href="https://gethumanity.ai" class="nav-back">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to site
+      </a>
+    </nav>
+
+    <div class="hero">
+      <h1>Privacy Policy</h1>
+      <p class="effective-date">Effective <strong>March 16, 2026</strong></p>
+    </div>
+
+    <div class="content-card">
+      <h2>Overview</h2>
+      <p>Humanity AI ("we," "us," or "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at <a href="https://gethumanity.ai">gethumanity.ai</a>, interact with our ads, or use our services.</p>
+
+      <h2>Information We Collect</h2>
+
+      <h3>Information You Provide</h3>
+      <p>When you fill out a form, request a demo, or otherwise contact us, we may collect:</p>
+      <ul>
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+        <li>Business name and industry</li>
+        <li>Any other information you voluntarily provide in form responses or messages</li>
+      </ul>
+
+      <h3>Information Collected Automatically</h3>
+      <p>When you visit our website or interact with our advertisements, we may automatically collect:</p>
+      <ul>
+        <li>IP address and approximate location</li>
+        <li>Browser type, device type, and operating system</li>
+        <li>Pages visited, time spent on pages, and referring URLs</li>
+        <li>Interaction data from advertisements (clicks, views, form submissions)</li>
+      </ul>
+
+      <h3>Tracking Technologies</h3>
+      <p>We use cookies, pixels (including the Meta Pixel), and similar technologies to measure ad performance, understand site usage, and improve your experience. These tools may collect data about your browsing activity across websites.</p>
+
+      <h2>How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Respond to your inquiries and provide requested services</li>
+        <li>Send relevant follow-up communications about our services</li>
+        <li>Measure and improve our advertising campaigns</li>
+        <li>Analyze website traffic and usage patterns</li>
+        <li>Protect against fraud and maintain security</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+
+      <h2>How We Share Your Information</h2>
+      <p>We do not sell your personal information. We may share your data with:</p>
+      <ul>
+        <li><strong>Service providers</strong> — trusted third parties that help us operate our business (e.g., CRM platforms, email tools, analytics services)</li>
+        <li><strong>Advertising platforms</strong> — such as Meta (Facebook/Instagram) for ad measurement and optimization via the Conversions API and Meta Pixel</li>
+        <li><strong>Legal compliance</strong> — when required by law, court order, or governmental authority</li>
+      </ul>
+
+      <h2>Data Retention</h2>
+      <p>We retain your personal information only as long as necessary to fulfill the purposes described in this policy, or as required by law. Lead information is typically retained for up to 24 months unless you request earlier deletion.</p>
+
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have the right to:</p>
+      <ul>
+        <li>Access the personal information we hold about you</li>
+        <li>Request correction of inaccurate information</li>
+        <li>Request deletion of your personal information</li>
+        <li>Opt out of marketing communications at any time</li>
+        <li>Opt out of targeted advertising</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at the email address below.</p>
+
+      <h2>Third-Party Links</h2>
+      <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices of those sites and encourage you to review their policies.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Our services are not directed to individuals under 16. We do not knowingly collect personal information from children. If you believe we have collected such data, please contact us immediately.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised effective date. Your continued use of our website or services after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or wish to exercise your privacy rights, contact us at:</p>
+      <ul>
+        <li><strong>Humanity AI</strong></li>
+        <li>6901 Quaker Ave, Lubbock, TX 79413</li>
+        <li>Email: <a href="mailto:privacy@gethumanity.ai">privacy@gethumanity.ai</a></li>
+        <li>Phone: <a href="tel:+18067732106">(806) 773-2106</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2026 Humanity AI. All rights reserved.</p>
+      <p><a href="https://gethumanity.ai">gethumanity.ai</a></p>
+    </div>
+  </div>
+</body>
+</html>
